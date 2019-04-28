@@ -1,0 +1,22 @@
+/*
+
+header {
+    width: 100%;
+    overflow: hidden;
+    align-content: center;
+    
+}
+
+header button {
+    position: relative;
+    float: right;
+}
+*/
+
+.btn-secondary {
+    color: #6c757d!important;
+    background-color: #fff!important ;
+    border: none!important;
+    box-shadow: none!important;
+}
+
