@@ -1,4 +1,5 @@
 function addRow(tableId) {
+    
     // Get Values
     let sku = document.getElementById("sku").value;
     let itemName = document.getElementById("itemName").value;
@@ -42,20 +43,14 @@ function addRow(tableId) {
     // Select
     let selectUpdateType = document.createElement("select");
     selectUpdateType.setAttribute("class", "add__type browser-default custom-select");
+    
     formCell.appendChild(selectUpdateType);
-    // Select Options
-    let getSelectUpdateType = document.getElementById("select");
-    let opt1 = document.createElement("option");
-    opt1.appendChild( document.createTextNode('Subtract'));
-    selectUpdateType.appendChild(opt1);
-    let opt2 = document.createElement("option");
-    opt2.appendChild( document.createTextNode('Add'));
-    select.appendChild(opt2);
+    
     
     // Quantity Input
     let quantityInput = document.createElement("input");
-    quantityInput.type = "text";
-    quantityInput.placeholder = "Enter quantity"
+    quantityInput.type = "number";
+    quantityInput.placeholder = "Enter quantity";
     formCell.appendChild(quantityInput);
 
     // Button
@@ -63,7 +58,17 @@ function addRow(tableId) {
     updateButton.type = "button";
     updateButton.className = "btn btn-sm btn-amber";
     updateButton.id = "btn";
-    updateButton.name = "Update";
+    updateButton.innerHTML = 'Update';
+    formCell.appendChild(updateButton);
+
+    // Select Options
+    let getSelectUpdateType = document.getElementById("select");
+    let opt1 = document.createElement("option");
+    opt1.appendChild( document.createTextNode('Subtract'));
+    selectUpdateType.appendChild(opt1);
+    let opt2 = document.createElement("option");
+    opt2.appendChild( document.createTextNode('Add'));
+    selectUpdateType.appendChild(opt2);
 
     
 
