@@ -1,5 +1,26 @@
 function addRow(tableId) {
-    
+    // Create Table
+    var table = document.getElementById('table');
+
+    if (document.getElementById('table').rows.length === 0) {
+        var tableHeader = table.createTHead();
+        var row = tableHeader.insertRow(0);
+        var skuHeader = row.insertCell(0);
+        skuHeader.innerHTML = "<b>SKU #</b>";
+        var itemNameHeader = row.insertCell(1);
+        itemNameHeader.innerHTML = "<b>Description</b>";
+        var quantityHeader = row.insertCell(2);
+        quantityHeader.innerHTML = "<b>Qty</b>";
+        var costHeader = row.insertCell(3);
+        costHeader.innerHTML = "<b>Cost</b>";
+        var priceHeader = row.insertCell(4);
+        priceHeader.innerHTML = "<b>Price</b>";
+        var imagePathHeader = row.insertCell(5);
+        imagePathHeader.innerHTML = "<b>Image</b>";
+        var updateInventoryHeader = row.insertCell(6);
+        updateInventoryHeader.innerHTML = "<b>+/- Inventory</b>";
+    }
+
     // Get Values
     let sku = document.getElementById("sku").value;
     let itemName = document.getElementById("itemName").value;
