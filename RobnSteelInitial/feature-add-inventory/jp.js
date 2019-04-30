@@ -54,8 +54,8 @@ function addRow(tableId) {
     let imageCell = newRow.insertCell(5);
     let image = document.createElement("img");
     image.setAttribute("src", imagePath);
-    image.setAttribute("height", 200);
-    image.setAttribute("width", 200);
+    image.setAttribute("height", 77);
+    image.setAttribute("width", 77);
     imageCell.appendChild(image);
 
     // Add/Remove Form
@@ -64,24 +64,7 @@ function addRow(tableId) {
     // Select
     let selectUpdateType = document.createElement("select");
     selectUpdateType.setAttribute("class", "add__type browser-default custom-select");
-    
     formCell.appendChild(selectUpdateType);
-    
-    
-    // Quantity Input
-    let quantityInput = document.createElement("input");
-    quantityInput.type = "number";
-    quantityInput.placeholder = "Enter quantity";
-    formCell.appendChild(quantityInput);
-
-    // Button
-    let updateButton = document.createElement("button");
-    updateButton.type = "button";
-    updateButton.className = "btn btn-sm btn-amber";
-    updateButton.id = "btn";
-    updateButton.innerHTML = 'Update';
-    formCell.appendChild(updateButton);
-
     // Select Options
     let getSelectUpdateType = document.getElementById("select");
     let opt1 = document.createElement("option");
@@ -90,12 +73,27 @@ function addRow(tableId) {
     let opt2 = document.createElement("option");
     opt2.appendChild( document.createTextNode('Add'));
     selectUpdateType.appendChild(opt2);
+    
+    // Quantity Input
+    let quantityInput = document.createElement("input");
+    quantityInput.type = "number";
+    quantityInput.placeholder = "Enter quantity";
+    formCell.appendChild(quantityInput);
+
+    // Update Button
+    let updateButton = document.createElement("button");
+    updateButton.type = "button";
+    updateButton.className = "btn btn-sm btn-amber";
+    updateButton.id = "btn";
+    updateButton.innerHTML = 'Update';
+    formCell.appendChild(updateButton);
 
     
 
     
 
-    //<input type="number" class="add__value" placeholder=""></input>
+    
+
 
     
     

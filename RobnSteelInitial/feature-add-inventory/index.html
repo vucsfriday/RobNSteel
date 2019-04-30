@@ -17,8 +17,6 @@
 </head>
 
 <body>
-
-  <!-- Start your project here-->
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
@@ -35,7 +33,7 @@
     <div class="collapse navbar-collapse" id="basicExampleNav">
   
       <!-- Links -->
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto" data-toggle="collapse" data-target="#basicExampleNav">
         <!--Inventory Modal Trigger-->
         <li class="nav-item active" data-toggle="modal" data-target="#basicExampleModal">
           <a class="nav-link" href="#">Add Inventory
@@ -43,142 +41,70 @@
           </a>
         </li>
       </ul>
-        <!-- Links -->
-        
-        <!-- Modal -->
-        <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-plus"></i>   New Inventory Item</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-                        
-                        <input type="text" class="form-control validate" id="sku">
-                        <label for="sku">SKU</label>
-                    </div>
-                    <div class="md-form mb-5">
-                        <input type="text" class="form-control validate" id="itemName">
-                        <label for="itemName">Item name</label>
-                    </div>
-                    <div class="md-form mb-5">   
-                        <input type="number" class="form-control validate" id="quantity">
-                        <label for="quantity">Quantity</label>
-                    </div>
-                    <div class="md-form mb-5">   
-                        <input type="text" class="form-control validate" id="cost">
-                        <label for="cost">Cost</label>
-                    </div>
-                    <div class="md-form mb-5">   
-                        <input type="text" class="form-control validate" id="price">
-                        <label for="price">Price</label>
-                    </div>
-                    <div class="md-form mb-5">   
-                            <input type="text" class="form-control validate" id="image-path">
-                            <label for="image-path">Image Path</label>
-                    </div>
-
-                    <!--Eventual, real image uploader
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-                    </div>-->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="addRow('table')" data-dismiss="modal">Save</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!--/Modal-->
+    </div>
+      <!-- Links -->  
     <!-- Collapsible content -->
   
 </nav>
 <!--/.Navbar-->
 
-  <table class="table table-hover" id='table'>
-      <!--<thead>
-          <tr>
-              <th scope="col">Sku #</th>
-              <th scope="col">Description</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Cost</th>
-              <th scope="col">Price</th>
-              <th scope="col">Image</th>
-              <th scope="col">+/- Inventory</th>
-          </tr>
-      </thead>-->
-      <!--<tbody>
-          <tr>
-            <th scope="row">1019</th>
-                <td>VINTAGE SILVER BLACK TIBETAN SKELETON SKULL RING</td>
-                <td class="quantity__1">0</td>
-                <td>$0.93</td>
-                <td>$10.00</td>
-                <td><img src="skull ring.png" width="110" height="110" alt="skull ring"></td>
-                <td>
-                    <select class="add__type browser-default custom-select">
-                        <option value="subtract" selected>Subtract</option>
-                        <option value="add">Add</option>
-                    </select>
-                <input type="number" class="add__value" placeholder="">
-                <button type="button" class="btn btn-sm btn-amber" id="btn">Update</button>
-                </td>
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-plus"></i>   New Inventory Item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+                
+                <input type="text" class="form-control validate" id="sku">
+                <label for="sku">SKU</label>
+            </div>
+            <div class="md-form mb-5">
+                <input type="text" class="form-control validate" id="itemName">
+                <label for="itemName">Item name</label>
+            </div>
+            <div class="md-form mb-5">   
+                <input type="number" class="form-control validate" id="quantity">
+                <label for="quantity">Quantity</label>
+            </div>
+            <div class="md-form mb-5">   
+                <input type="text" class="form-control validate" id="cost">
+                <label for="cost">Cost</label>
+            </div>
+            <div class="md-form mb-5">   
+                <input type="text" class="form-control validate" id="price">
+                <label for="price">Price</label>
+            </div>
+            <div class="md-form mb-5">   
+                    <input type="text" class="form-control validate" id="image-path">
+                    <label for="image-path">Image Path</label>
+            </div>
 
-          </tr>-->
-          <!--<tr>
-              <th scope="row">1018</th>
-              <td>VINTAGE SILVER BLACK TIBETAN SKELETON SKULL RING</td>
-              <td class="quantity__2">0</td>
-              <td>$0.93</td>
-              <td>$10.00</td>
-              <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"></td>
-              <td><select class="add__type">
-                      <option value="add" selected>+</option>
-                      <option value="subtract" selected>-</option>
-                  </select>
-                  <input type="number" class="add__value" placeholder="Value">
-                  <button type="button" class="btn btn-success" id="btn1">Select</button></td>
-          </tr>
-          <tr>
-              <th scope="row">1017</th>
-              <td>VINTAGE SILVER BLACK TIBETAN SKELETON SKULL RING</td>
-              <td class="quantity__3">0</td>
-              <td>$0.93</td>
-              <td>$10.00</td>
-              <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"></td>
-              <td><select class="add__type">
-                      <option value="add" selected>+</option>
-                      <option value="subtract" selected>-</option>
-                  </select>
-                  <input type="number" class="add__value" placeholder="Value">
-                  <button type="button" class="btn btn-success" id="btn2">Select</button></td>
-          </tr>
-          <tr>
-              <th scope="row">1016</th>
-              <td>VINTAGE SILVER BLACK TIBETAN SKELETON SKULL RING</td>
-              <td class="quantity__4">0</td>
-              <td>$0.93</td>
-              <td>$10.00</td>
-              <td><img src="C:\Users\Jasmyne.Boggs\Desktop\projects\VUCS-Inventory-Mockup\skull ring.png"  width="200" height="200" alt="skull ring"></td>
-              <td><select class="add__type">
-                      <option value="add" selected>+</option>
-                      <option value="subtract" selected>-</option>
-                  </select>
-                  <input type="number" class="add__value" placeholder="Value">
-                  <button type="button" class="btn btn-success" id="btn3">Select</button></td>
-          </tr>
-      </tbody>-->
+            <!--Eventual, real image uploader
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>-->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="addRow('table')" data-dismiss="modal">Save</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!--/Modal-->
+
+  <table class="table table-hover" id='table'>
   </table>
-  <!-- /Start your project here-->
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
