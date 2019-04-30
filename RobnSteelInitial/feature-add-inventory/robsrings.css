@@ -1,22 +1,19 @@
-/*
-
-header {
-    width: 100%;
-    overflow: hidden;
-    align-content: center;
-    
-}
-
-header button {
-    position: relative;
-    float: right;
-}
-*/
-
 .btn-secondary {
     color: #6c757d!important;
     background-color: #fff!important ;
     border: none!important;
     box-shadow: none!important;
+}
+
+select {
+    margin-bottom: 5px;
+}
+
+th {
+    min-width: 75px;
+}
+
+select {
+    font-size: 9px;
 }
 
