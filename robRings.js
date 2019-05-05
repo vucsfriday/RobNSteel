@@ -10,7 +10,6 @@ function addNewItem() {
   let cellCost = row.insertCell(3)
   let cellPrice = row.insertCell(4)
   let cellImage = row.insertCell(5)
-  let cellAdjustInv = row.insertCell(6)
   
   document.querySelector('.bg-modal').style.display = 'flex';
 
@@ -26,8 +25,9 @@ function addNewItem() {
     cellPrice.innerHTML = document.getElementById("new_price").value;
     
     // upload img
-
-    // create button
+    picture = document.getElementById("file").files[0].name;
+    cellImage.innerHTML = '<img src="' + picture + '" width="200" height="200" alt="skull ring">'
+    
   
   });
 
