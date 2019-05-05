@@ -1,44 +1,45 @@
-/*
-count = 0;
-document.getElementById('btn').addEventListener('click', function() { 
+function addNewItem() {
+  let table = document.getElementById("main_table");
+  // creates new row
+  let row = table.insertRow(1);
+  
+  // creates cells in new row
+  let cellSku = row.insertCell(0);
+  let cellDescription = row.insertCell(1);
+  let cellQty = row.insertCell(2)
+  let cellCost = row.insertCell(3)
+  let cellPrice = row.insertCell(4)
+  let cellImage = row.insertCell(5)
+  let cellAdjustInv = row.insertCell(6)
+  
+  document.querySelector('.bg-modal').style.display = 'flex';
+
+  document.getElementById('btn-add-new').addEventListener('click', function(){
+    //  closes modal when submit button is clicked
+    document.querySelector('.bg-modal').style.display = 'none';
+  
+    // updates user interface
+    cellSku.innerHTML = document.getElementById("new_sku").value;
+    cellDescription.innerHTML = document.getElementById("new_descrip").value;
+    cellQty.innerHTML = document.getElementById("new_qty").value;
+    cellCost.innerHTML = document.getElementById("new_cost").value;
+    cellPrice.innerHTML = document.getElementById("new_price").value;
     
-    count += 1;
-    var totalQty = document.querySelector('.quantity__1');
-    totalQty.textContent = count; 
+    // upload img
+
+    // create button
+  
+  });
+
+}
+ 
+// close modal
+document.querySelector('.close').addEventListener('click', function() {
+  document.querySelector('.bg-modal').style.display = 'none';
 });
 
-document.getElementById('btn1').addEventListener('click', function() { 
-    
-    count += 1;
-      var totalQty = document.querySelector('.quantity__2');
-      totalQty.textContent = count; 
-  });
 
-  document.getElementById('btn2').addEventListener('click', function() { 
-    
-    count += 1;
-      var totalQty = document.querySelector('.quantity__3');
-      totalQty.textContent = count; 
-  });
-  document.getElementById('btn3').addEventListener('click', function() { 
-    
-     count += 1;
-      var totalQty = document.querySelector('.quantity__4');
-      totalQty.textContent = count; 
-  });
-  */
 
-var DOMstrings = {
-    inputType: '.add__type',
-    inputValue: '.add__value'
-};
 
-document.getElementById('btn').addEventListener('click', function() { 
-    // var typeInput = document.querySelector(DOMstrings.inputType).value; // either subtract or add to inventory
-    var value = parseFloat(document.querySelector(DOMstrings.inputValue).value);
-    
-    var totalQty = document.querySelector('.quantity__1');
-    totalQty.textContent = value;
 
-});
 
