@@ -1,18 +1,15 @@
 function addNewItem() {
+  document.querySelector('.bg-modal').style.display = 'flex';
+}
 
-let cellSku, cellDescription, cellQty, cellCost, cellPrice, cellImage;
-
-document.querySelector('.bg-modal').style.display = 'flex';
-
-
-document.getElementById('btn-add-new').addEventListener('click', function() {
+function addInfo() {
+  let cellSku, cellDescription, cellQty, cellCost, cellPrice, cellImage;
 
   // closes modal when submit button is clicked
  document.querySelector('.bg-modal').style.display = 'none';
 
   // updates user interface
 
-  if (document.getElementById("new_sku").value > 0) {
       let table = document.getElementById("main_table");
     
       // creates new row
@@ -37,9 +34,7 @@ document.getElementById('btn-add-new').addEventListener('click', function() {
       picture = document.getElementById("file").files[0].name;
       cellImage.innerHTML = '<img src="' + picture + '" width="200" height="200" alt="skull ring">'
     
-    } else if (document.getElementById("new_sku").value <= 0) {
-      alert('Enter Sku Number');
-    }
+   
 
   // clear fields once you hit submit
   document.getElementById('new_sku').value = '';
@@ -49,9 +44,9 @@ document.getElementById('btn-add-new').addEventListener('click', function() {
   document.getElementById('new_price').value = '';
   document.getElementById('file').value = '';
 
-  
-  });
 }
+
+document.getElementById('btn-add-new').addEventListener('click', addInfo);
 
 // close modal
 document.querySelector('.close').addEventListener('click', function() {
