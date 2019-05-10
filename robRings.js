@@ -14,13 +14,15 @@ function openForm() {
 function submitForm() {
     let table = document.getElementById("main_table");
     let row = table.insertRow(1);
-    let cellSku = row.insertcell(1).getElementByName("sku");
-    let celldescription = row.insertcell(1).getElementByName("description");
-    let cellquantity = row.insertcell(1).getElementByName("quantity");
-    let cellcost = row.insertcell(1).getElementByName("cost");
-    let cellprice = row.insertcell(1).getElementByName("price");
-    let cellimage = row.insertcell(1).getElementByName("image");
-   }
+    let cellsku = row.insertCell(0); 
+    console.log(row);
+    cellsku.innerHTML = document.getElementById("sku").value;
+    let description = document.getElementById("description").value;
+    let quantity = document.getElementById("quantity").value;
+    let cost = document.getElementById("cost").value;
+    let price = document.getElementById("price").value;
+    let image = document.getElementById("file").value;
+    }
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";

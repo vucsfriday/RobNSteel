@@ -36,23 +36,23 @@
     <button class="open-button" onclick="openForm()">Add Inventory</button>
 
     <div class="form-popup" id="myForm">
-        <form onsubmit="submitForm()" class="form-container">
+        <form class="form-container">
             <h1>Add Inventory</h1>
 
             <label for="sku"><b>Sku #</b></label>
-            <input type="text" placeholder="Enter Sku #" name="sku" required>
+            <input type="text" placeholder="Enter Sku #" name="sku" id="sku" required>
 
             <label for="Description"><b>Description</b></label>
-            <input type="text" placeholder="Enter Description" name="description" required>
+            <input type="text" placeholder="Enter Description" name="description" id="description" required>
 
             <label for="quantity"><b>Quantity</b></label>
-            <input type="text" placeholder="Enter Quantity" name="quantity" required>
+            <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required>
 
             <label for="Cost"><b>Cost</b></label>
-            <input type="text" placeholder="Enter Cost" name="cost" required>
+            <input type="text" placeholder="Enter Cost" name="cost" id="cost" required>
 
             <label for="Price"><b>Price</b></label>
-            <input type="text" placeholder="Enter Price" name="price" required>
+            <input type="text" placeholder="Enter Price" name="price" id="price" required>
 
             <div class="imageInput">
                 Upload Image File<input type="file" accept="image/*" name="image" id="file"
@@ -60,7 +60,7 @@
             </div>
             <div><img id="output" width="200" /></div>
 
-            <button type="submit" class="btn" onclick="submitForm()">Add Inventory</button>
+            <button type="button" class="btn" onclick="submitForm()">Add Inventory</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
         </form>
     </div>
@@ -79,7 +79,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+                <tr>
                 <th scope="row">1019</th>
                 <td>VINTAGE SILVER BLACK TIBETAN SKELETON SKULL RING</td>
                 <td class="quantity__1">0</td>
@@ -162,7 +162,8 @@
 
 <script src="robRings.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
 <style>
     * {
