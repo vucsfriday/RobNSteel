@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Rob's Rings</title>
+    <link rel="stylesheet" href="robsRings.css">
+    <title>RobNSteel</title>
 </head>
 
 <body>
-    <h1 class="p-3 mb-2 bg-success text-white">Rob's Rings</h1>
-
-
-
-    <table class="table table-hover">
+    <h1 class="p-3 mb-2 bg-success text-white">RobNSteel</h1>
+    <nav class="navbar navbar-light bg-light">
+        <button type="button" class="btn btn-outline-secondary" onclick="addNewItem()">Add Item</button>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+    <table class="table table-hover" id="main_table">
         <thead>
             <tr>
                 <th scope="col">Sku #</th>
@@ -23,7 +28,6 @@
                 <th scope="col">Cost</th>
                 <th scope="col">Price</th>
                 <th scope="col">Image</th>
-                <th scope="col">+/- Inventory</th>
             </tr>
         </thead>
         <tbody>
@@ -33,13 +37,8 @@
                 <td class="quantity__1">0</td>
                 <td>$0.93</td>
                 <td>$10.00</td>
-                <td><img src="skull ring.png" width="200" height="200" alt="skull ring"></td>
-                <td><select class="add__type">
-                    <option value="add" selected>+</option>
-                    <option value="subtract" selected>-</option>
-                </select>
-                <input type="number" class="add__value" placeholder="Value">
-                <button type="button" class="btn btn-success" id="btn" >Select</button></td>
+                <td><img src="skull ring.png" width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button></td>
+                
             </tr>
             <tr>
                 <th scope="row">1018</th>
@@ -47,13 +46,7 @@
                 <td class="quantity__2">0</td>
                 <td>$0.93</td>
                 <td>$10.00</td>
-                <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"></td>
-                <td><select class="add__type">
-                        <option value="add" selected>+</option>
-                        <option value="subtract" selected>-</option>
-                    </select>
-                    <input type="number" class="add__value" placeholder="Value">
-                    <button type="button" class="btn btn-success" id="btn1">Select</button></td>
+                <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button></td>
             </tr>
             <tr>
                 <th scope="row">1017</th>
@@ -61,13 +54,7 @@
                 <td class="quantity__3">0</td>
                 <td>$0.93</td>
                 <td>$10.00</td>
-                <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"></td>
-                <td><select class="add__type">
-                        <option value="add" selected>+</option>
-                        <option value="subtract" selected>-</option>
-                    </select>
-                    <input type="number" class="add__value" placeholder="Value">
-                    <button type="button" class="btn btn-success" id="btn2">Select</button></td>
+                <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button></td>
             </tr>
             <tr>
                 <th scope="row">1016</th>
@@ -75,16 +62,24 @@
                 <td class="quantity__4">0</td>
                 <td>$0.93</td>
                 <td>$10.00</td>
-                <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"></td>
-                <td><select class="add__type">
-                        <option value="add" selected>+</option>
-                        <option value="subtract" selected>-</option>
-                    </select>
-                    <input type="number" class="add__value" placeholder="Value">
-                    <button type="button" class="btn btn-success" id="btn3">Select</button></td>
+                <td><img src="skull ring.png"  width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button></td>
             </tr>
         </tbody>
     </table>
+    <div class="bg-modal">
+        <div class="modal-content">
+            <form>
+                <div class="close">+</div>
+                <input type="text" id="new_sku" placeholder="Sku">
+                <input type="text" id="new_descrip"  placeholder="Description">
+                <input type="text" id="new_qty"  placeholder="Quantity">
+                <input type="text" id="new_cost"  placeholder="Cost">
+                <input type="text" id="new_price"  placeholder="Price">
+                <input type="file"  accept="image/*" name="image" id="file" class="hide_file"  onchange="loadFile(event)">
+                <button type="button" class="btn btn-success" id="btn-add-new">Submit</button>
+            </form>
+        </div>
+    </div>
     <script src="robRings.js"></script>
 </body>
 

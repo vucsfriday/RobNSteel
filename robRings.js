@@ -1,44 +1,70 @@
-/*
-count = 0;
-document.getElementById('btn').addEventListener('click', function() { 
+function addNewItem() {
+  document.querySelector('.bg-modal').style.display = 'flex';
+}
+
+function addInfo() {
+  let cellSku, cellDescription, cellQty, cellCost, cellPrice, cellImage;
+
+  // closes modal when submit button is clicked
+ document.querySelector('.bg-modal').style.display = 'none';
+
+ // validation
+ if (document.getElementById("new_sku").value <= 0) {
+   alert('Please enter a value in all fields.');
+ } else if (document.getElementById("new_descrip").value <= 0 ) {
+    alert('Please enter a value in all fields.');
+} else if (document.getElementById("new_qty").value <= 0) {
+   alert('Please enter a value in all fields.'); 
+} else if (document.getElementById("new_cost").value <= 0) {
+  alert('Please enter a value in all fields.');
+} else if (document.getElementById("new_price").value <= 0) {
+  alert('Please enter a value in all fields.')
+} else {
+
+    // selects table
+    let table = document.getElementById("main_table");
     
-    count += 1;
-    var totalQty = document.querySelector('.quantity__1');
-    totalQty.textContent = count; 
+      // creates new row
+      let row = table.insertRow(1);
+  
+      // creates cells in new row
+      cellSku = row.insertCell(0);
+      cellDescription = row.insertCell(1);
+      cellQty = row.insertCell(2);
+      cellCost = row.insertCell(3);
+      cellPrice = row.insertCell(4);
+      cellImage = row.insertCell(5);
+
+      // updates user interface
+      cellSku.innerHTML = document.getElementById("new_sku").value;
+      cellDescription.innerHTML = document.getElementById("new_descrip").value;
+      cellQty.innerHTML = parseInt(document.getElementById("new_qty").value); 
+      cellCost.innerHTML = "$" + document.getElementById("new_cost").value;
+      cellPrice.innerHTML = "$" + document.getElementById("new_price").value;
+    
+      // upload img
+      let picture = document.getElementById("file").files[0].name;
+      cellImage.innerHTML = '<img src="' + picture + '" width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button>'
+ }
+   
+
+  // clear fields once you hit submit
+  document.getElementById('new_sku').value = '';
+  document.getElementById('new_descrip').value = '';
+  document.getElementById('new_qty').value = '';
+  document.getElementById('new_cost').value = '';
+  document.getElementById('new_price').value = '';
+  document.getElementById('file').value = '';
+
+}
+
+document.getElementById('btn-add-new').addEventListener('click', addInfo);
+
+// close modal
+document.querySelector('.close').addEventListener('click', function() {
+  document.querySelector('.bg-modal').style.display = 'none';
 });
 
-document.getElementById('btn1').addEventListener('click', function() { 
-    
-    count += 1;
-      var totalQty = document.querySelector('.quantity__2');
-      totalQty.textContent = count; 
-  });
+//TODO: add edit button to each row, modal, edit UI
 
-  document.getElementById('btn2').addEventListener('click', function() { 
-    
-    count += 1;
-      var totalQty = document.querySelector('.quantity__3');
-      totalQty.textContent = count; 
-  });
-  document.getElementById('btn3').addEventListener('click', function() { 
-    
-     count += 1;
-      var totalQty = document.querySelector('.quantity__4');
-      totalQty.textContent = count; 
-  });
-  */
-
-var DOMstrings = {
-    inputType: '.add__type',
-    inputValue: '.add__value'
-};
-
-document.getElementById('btn').addEventListener('click', function() { 
-    // var typeInput = document.querySelector(DOMstrings.inputType).value; // either subtract or add to inventory
-    var value = parseFloat(document.querySelector(DOMstrings.inputValue).value);
-    
-    var totalQty = document.querySelector('.quantity__1');
-    totalQty.textContent = value;
-
-});
-
+document.querySelector('.edit_btn').addEventListener('click', addNewItem);
