@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+    <!-- for Modal-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -25,6 +32,7 @@
         <a href="#contact">Contact</a>
         <a href=#robsrings>Rob's Rings</a>
         <div class="search-container">
+            <!-- Issue: when searching directs to .php file, what's dis do? -->
             <form action="/action_page.php">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -32,38 +40,70 @@
         </div>
     </div>
 
-    <!-- initiate pop up form -->
-    <button class="open-button" onclick="openForm()">Add Inventory</button>
 
-    <div class="form-popup" id="myForm">
-        <form class="form-container">
-            <h1>Add Inventory</h1>
+    <div class="container">
+        <h2>Modal Example</h2>
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Add Inventory
+        </button>
 
-            <label for="sku"><b>Sku #</b></label>
-            <input type="text" placeholder="Enter Sku #" name="sku" id="sku" required>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-            <label for="Description"><b>Description</b></label>
-            <input type="text" placeholder="Enter Description" name="description" id="description" required>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Inventory </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-            <label for="quantity"><b>Quantity</b></label>
-            <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required>
+                    <!-- Modal body -->
+                    <div class="modal-body">
 
-            <label for="Cost"><b>Cost</b></label>
-            <input type="text" placeholder="Enter Cost" name="cost" id="cost" required>
+                        <span class="form-control-static pull-left">
+                            <label for="sku"><b>Sku #</b></label>
+                            <input type="text" placeholder="Enter Sku #" name="sku" id="sku" required>
+                        </span>
 
-            <label for="Price"><b>Price</b></label>
-            <input type="text" placeholder="Enter Price" name="price" id="price" required>
+                        <span class="form-control-static pull-left">
+                            <label for="Description"><b>Description</b></label>
+                            <input type="text" placeholder="Enter Description" name="description" id="description" required>
+                        </span>
 
-            <div class="imageInput">
-                Upload Image File<input type="file" accept="image/*" name="image" id="file"
-                                        class="hide_file" onchange="loadFile(event)">
+                        <span class="form-control-static pull-left">
+                            <label for="quantity"><b>Quantity</b></label>
+                            <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required>
+                        </span>
+
+                        <span class="form-control-static pull-left">
+                            <label for="Cost"><b>Cost</b></label>
+                            <input type="text" placeholder="Enter Cost" name="cost" id="cost" required>
+                        </span>
+
+                        <span class="form-control-static pull-left">
+                            <label for="Price"><b>Price</b></label>
+                            <input type="text" placeholder="Enter Price" name="price" id="price" required>
+                        </span>
+
+                        <span class="form-control-static pull-left">
+                            <input type="file" accept="image/*" name="image" id="file"
+                                   class="hide_file">
+                        </span>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="submitForm()">Submit</button>
+                    </div>
+
+                </div>
             </div>
-            <div><img id="output" width="200" /></div>
+        </div>
 
-            <button type="button" class="btn" onclick="submitForm()">Add Inventory</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-        </form>
     </div>
+
 
     <!-- for table  -->
     <table class="table table-hover" id="main_table">
@@ -79,7 +119,7 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
+            <tr>
                 <th scope="row">1019</th>
                 <td>VINTAGE SILVER BLACK TIBETAN SKELETON SKULL RING</td>
                 <td class="quantity__1">0</td>
@@ -244,6 +284,87 @@
 
 
 
+<!-- style for modal-->
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-body {
+        background-color: #fefefe;
+        margin: 5px 0 22px 0;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 100%;
+        width: 100%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+
+
+<!-- initiate pop up form, dismissed for modal. keep in case need info
+<button class="open-button" onclick="openForm()">Add Inventory</button>
+
+<div class="form-popup" id="myForm">
+    <form class="form-container">
+        <h1>Add Inventory</h1>
+
+        <label for="sku"><b>Sku #</b></label>
+        <input type="text" placeholder="Enter Sku #" name="sku" id="sku" required>
+
+        <label for="Description"><b>Description</b></label>
+        <input type="text" placeholder="Enter Description" name="description" id="description" required>
+
+        <label for="quantity"><b>Quantity</b></label>
+        <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required>
+
+        <label for="Cost"><b>Cost</b></label>
+        <input type="text" placeholder="Enter Cost" name="cost" id="cost" required>
+
+        <label for="Price"><b>Price</b></label>
+        <input type="text" placeholder="Enter Price" name="price" id="price" required>
+
+       <input type="file" accept="image/*" name="image" id="file"
+                                    class="hide_file" onchange="loadFile(event)">
+
+
+        <button type="button" class="btn" onclick="submitForm()">Add Inventory</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+    </form>
+</div>
+    -->
+<!--style for pop up form
+
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -323,3 +444,4 @@
             opacity: 1;
         }
 </style>
+    -->
