@@ -6,62 +6,63 @@ function addInfo() {
   let cellSku, cellDescription, cellQty, cellCost, cellPrice, cellImage;
 
   // closes modal when submit button is clicked
-  $(".bg-modal").toggle(false);
+ $(".bg-modal").toggle(false);
+  //document.querySelector('.bg-modal').style.display = 'none';
 
-  // validation
-  if (document.getElementById("new_sku").value <= 0) {
+ // validation
+ if ($("#new_sku").val() <=0) {
+   alert('Please enter a value in all fields.');
+ } else if ($("#new_descrip").val() <= 0) {
     alert('Please enter a value in all fields.');
-  } else if (document.getElementById("new_descrip").value <= 0) {
-    alert('Please enter a value in all fields.');
-  } else if (document.getElementById("new_qty").value <= 0) {
-    alert('Please enter a value in all fields.');
-  } else if (document.getElementById("new_cost").value <= 0) {
-    alert('Please enter a value in all fields.');
-  } else if (document.getElementById("new_price").value <= 0) {
-    alert('Please enter a value in all fields.')
-  } else {
+} else if ($("#new_qty").val() <= 0) {
+   alert('Please enter a value in all fields.'); 
+} else if ($("#new_cost").val() <= 0) {
+  alert('Please enter a value in all fields.');
+} else if ($("#new_price").val() <= 0) {
+  alert('Please enter a value in all fields.')
+} else {
 
     // selects table
-    let table = document.getElementById("main_table");
+    let table = $("#main_table tbody");
+    
+      // creates new row
+      let row = $("<tr>").prependTo(table);
+  
+      // creates cells in new row
+      cellSku = $("<td>").prependTo(row);
+      cellDescription = row.prependTo(row);
+      cellQty = row.prependTo(row);
+      cellCost = row.prependTo(row);
+      cellPrice = row.prependTo(row);
+      cellImage = row.prependTo(row);
 
-    // creates new row
-    let row = table.insertRow(1);
-
-    // creates cells in new row
-    cellSku = row.insertCell(0);
-    cellDescription = row.insertCell(1);
-    cellQty = row.insertCell(2);
-    cellCost = row.insertCell(3);
-    cellPrice = row.insertCell(4);
-    cellImage = row.insertCell(5);
-
-    // updates user interface
-    cellSku.innerHTML = document.getElementById("new_sku").value;
-    cellDescription.innerHTML = document.getElementById("new_descrip").value;
-    cellQty.innerHTML = parseInt(document.getElementById("new_qty").value);
-    cellCost.innerHTML = "$" + document.getElementById("new_cost").value;
-    cellPrice.innerHTML = "$" + document.getElementById("new_price").value;
-
-    // upload img
-    let picture = document.getElementById("file").files[0].name;
-    cellImage.innerHTML = '<img src="' + picture + '" width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button>'
-  }
-
+      // updates user interface
+      cellSku.innerHTML = $("#new_sku").val();
+      cellDescription.innerHTML = $("#new_descrip").val();
+      cellQty.innerHTML = parseInt($("#new_qty").val());
+      cellCost.innerHTML = "$" + $("#new_cost").val();
+      cellPrice.innerHTML = "$" + $("#new_price").val();
+    
+     
+      let picture = $("#file").prop('files')[0].name;
+      cellImage.innerHTML = '<img src="' + picture + '" width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button>'
+ }
+   
 
   // clear fields once you hit submit
-  document.getElementById('new_sku').value = '';
-  document.getElementById('new_descrip').value = '';
-  document.getElementById('new_qty').value = '';
-  document.getElementById('new_cost').value = '';
-  document.getElementById('new_price').value = '';
-  document.getElementById('file').value = '';
+  $('#new_sku').val();
+  $('#new_descrip').val();
+  $('#new_qty').val();
+  $('#new_cost').val();
+  $('#new_price').val();
+  $('#file').val();
 
 }
 
 document.getElementById('btn-add-new').addEventListener('click', addInfo);
 
 // close modal
-document.querySelector('.close').addEventListener('click', function () {
+document.querySelector('.close').addEventListener('click', function() {
   document.querySelector('.bg-modal').style.display = 'none';
 });
 
