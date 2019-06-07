@@ -75,11 +75,17 @@
                 <input type="text" id="new_qty"  placeholder="Quantity">
                 <input type="text" id="new_cost"  placeholder="Cost">
                 <input type="text" id="new_price"  placeholder="Price">
-                <input type="file"  accept="image/*" name="image" id="file" class="hide_file"  onchange="loadFile(event)">
-                <button type="button" class="btn btn-success" id="btn-add-new">Submit</button>
+                <input type="file"  accept="image/*" name="image" id="file" class="hide_file"  >
+                <button type="button" class="btn btn-success" id="btn-add-new" onclick="addInfo()">Submit</button>
             </form>
         </div>
     </div>
+
+    <script
+  src="http://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
     <script src="robRings.js"></script>
 </body>
 

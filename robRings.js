@@ -1,70 +1,70 @@
 function addNewItem() {
-  document.querySelector('.bg-modal').style.display = 'flex';
+  $('.bg-modal').attr("style","display:flex");
 }
 
 function addInfo() {
   let cellSku, cellDescription, cellQty, cellCost, cellPrice, cellImage;
 
   // closes modal when submit button is clicked
- document.querySelector('.bg-modal').style.display = 'none';
+  $(".bg-modal").toggle(false);
+  //document.querySelector('.bg-modal').style.display = 'none';
 
- // validation
- if (document.getElementById("new_sku").value <= 0) {
-   alert('Please enter a value in all fields.');
- } else if (document.getElementById("new_descrip").value <= 0 ) {
+  // validation
+  if ($("#new_sku").val() <= 0) {
     alert('Please enter a value in all fields.');
-} else if (document.getElementById("new_qty").value <= 0) {
-   alert('Please enter a value in all fields.'); 
-} else if (document.getElementById("new_cost").value <= 0) {
-  alert('Please enter a value in all fields.');
-} else if (document.getElementById("new_price").value <= 0) {
-  alert('Please enter a value in all fields.')
-} else {
+  } else if ($("#new_descrip").val() <= 0) {
+    alert('Please enter a value in all fields.');
+  } else if ($("#new_qty").val() <= 0) {
+    alert('Please enter a value in all fields.');
+  } else if ($("#new_cost").val() <= 0) {
+    alert('Please enter a value in all fields.');
+  } else if ($("#new_price").val() <= 0) {
+    alert('Please enter a value in all fields.')
+  } else {
 
     // selects table
-    let table = document.getElementById("main_table");
-    
-      // creates new row
-      let row = table.insertRow(1);
-  
-      // creates cells in new row
-      cellSku = row.insertCell(0);
-      cellDescription = row.insertCell(1);
-      cellQty = row.insertCell(2);
-      cellCost = row.insertCell(3);
-      cellPrice = row.insertCell(4);
-      cellImage = row.insertCell(5);
+    let table = $("#main_table tbody");
 
-      // updates user interface
-      cellSku.innerHTML = document.getElementById("new_sku").value;
-      cellDescription.innerHTML = document.getElementById("new_descrip").value;
-      cellQty.innerHTML = parseInt(document.getElementById("new_qty").value); 
-      cellCost.innerHTML = "$" + document.getElementById("new_cost").value;
-      cellPrice.innerHTML = "$" + document.getElementById("new_price").value;
-    
-      // upload img
-      let picture = document.getElementById("file").files[0].name;
-      cellImage.innerHTML = '<img src="' + picture + '" width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button>'
- }
-   
+    // creates new row
+    let row = $("<tr>").prependTo(table);
+
+    // creates cells in new row
+    cellSku = $("<td>").appendTo(row);
+    cellDescription = $("<td>").appendTo(row);
+    cellQty = $("<td>").appendTo(row);
+    cellCost = $("<td>").appendTo(row);
+    cellPrice = $("<td>").appendTo(row);
+    cellImage = $("<td>").appendTo(row);
+
+    // updates user interface
+    cellSku.html($("#new_sku").val());
+    cellDescription.html($("#new_descrip").val());
+    cellQty.html(parseInt($("#new_qty").val()));
+    cellCost.html("$" + $("#new_cost").val());
+    cellPrice.html("$" + $("#new_price").val());
+
+
+    let picture = $("#file").prop('files')[0].name;
+    cellImage.html('<img src="' + picture + '" width="200" height="200" alt="skull ring"><button type="button" class="edit_btn">Edit</button>');
+  }
+
 
   // clear fields once you hit submit
-  document.getElementById('new_sku').value = '';
-  document.getElementById('new_descrip').value = '';
-  document.getElementById('new_qty').value = '';
-  document.getElementById('new_cost').value = '';
-  document.getElementById('new_price').value = '';
-  document.getElementById('file').value = '';
-
+  $('#new_sku').val();
+  $('#new_descrip').val();
+  $('#new_qty').val();
+  $('#new_cost').val();
+  $('#new_price').val();
+  $('#file').val();
 }
 
-document.getElementById('btn-add-new').addEventListener('click', addInfo);
+  //**Current working on 6/2/19 - button is not submitting info */
+  $('btn-add-new').submit(addInfo);
 
-// close modal
-document.querySelector('.close').addEventListener('click', function() {
-  document.querySelector('.bg-modal').style.display = 'none';
-});
+  // close modal - 6/2/19 doesn't work correctly, no  close function
+  $('.close').on('click', function () {
+    $('.bg-modal').attr("style","display:none");
+  });
 
-//TODO: add edit button to each row, modal, edit UI
-
-document.querySelector('.edit_btn').addEventListener('click', addNewItem);
+  //TODO: add edit button to each row, modal, edit UI
+  $('.edit_btn').on('click', addNewItem);
